@@ -1,5 +1,6 @@
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
+
 const styles = theme => ({
 
   search: {
@@ -24,17 +25,17 @@ const styles = theme => ({
       width: '100%',
     },
     inputInput: {
-      margin: '10px auto',
+      margin: '10px',
       paddingTop: theme.spacing.unit,
       paddingRight: theme.spacing.unit,
       paddingBottom: theme.spacing.unit,
-      paddingLeft: theme.spacing.unit * 10,
-      backgroundColor: fade(theme.palette.common.black, 0.15),
+      paddingLeft: theme.spacing.unit * 6,
+      background: 'linear-gradient(45deg, #fad3dc 30%, #fad3bf 90%)',
       '&:hover': {
         backgroundColor: fade(theme.palette.common.black, 0.25),
       },
       transition: theme.transitions.create('width'),
-      width: '50%',
+      width: '60%',
       '&:focus': {
         width: '80%',
       },

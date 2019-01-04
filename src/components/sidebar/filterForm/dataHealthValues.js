@@ -1,0 +1,31 @@
+const healthVals = [
+  'Alcohol-free',
+  'Celery-free',
+  'Crustacean-free',
+  'Dairy',
+  'Eggs',
+  'Fish',
+  'Gluten',
+  'Kidney friendly',
+  'Kosher',
+  'Low potassium',
+  'Lupine-free',
+  'Mustard-free',
+  'No oil added',
+  'No-sugar',
+  'Paleo',
+  'Peanuts',
+  'Pescatarian',
+  'Pork-free',
+  'Red meat-free',
+  'Sesame-free',
+  'Shellfish',
+  'Soy',
+  'Sugar-conscious',
+  'Tree Nuts',
+  'Vegan',
+  'Vegetarian',
+  'Wheat-free'
+];
+
+export default healthVals

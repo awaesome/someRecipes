@@ -1,9 +1,6 @@
 const drawerWidth = 240;
 
 const styles = theme => ({
-  root: {
-    display: 'flex',
-  },
   drawer: {
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
@@ -14,6 +11,8 @@ const styles = theme => ({
     width: drawerWidth,
   },
   appBar: {
+    display: 'flex',
+    flexDirection: 'row',
     marginLeft: drawerWidth,
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,

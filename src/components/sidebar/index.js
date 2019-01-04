@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Icon from '@material-ui/core/Icon';
 import Fab from '@material-ui/core/Fab';
 import { withStyles } from '@material-ui/core/styles';
@@ -28,16 +24,10 @@ class Sidebar extends React.Component {
     const drawer = (
       <React.Fragment>
         <Hidden xsDown implementation="css">
-          {this.props.children}
+          {this.props.children[0]}
         </Hidden>
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        	{this.props.children[1]}
         <Divider />
       </React.Fragment>
     );
@@ -46,13 +36,11 @@ class Sidebar extends React.Component {
         <nav className={classes.drawer}>
           <Hidden smUp implementation="css">
             <AppBar position="fixed" color="default" className={classes.appBar}>
-              <Toolbar>
                 <Fab color="primary" size="small" aria-label="Add" className={classes.fab} onClick={this.handleDrawerToggle}>
                   <Icon>menu</Icon>
                 </Fab>
                 <div className={classes.grow} />
-                  {this.props.children}
-                </Toolbar>
+                  {this.props.children[0]}
             </AppBar>
             <Drawer
               container={this.props.container}
@@ -65,6 +53,7 @@ class Sidebar extends React.Component {
               {drawer}
             </Drawer>
           </Hidden>
+
           <Hidden xsDown implementation="css">
             <Drawer
               container={this.props.container}
@@ -84,8 +73,6 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
   classes: PropTypes.object.isRequired,
-  // Injected by the documentation to work in an iframe.
-  // You won't need it on your project.
   container: PropTypes.object
 };
 
