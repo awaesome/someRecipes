@@ -35,10 +35,14 @@ const styles = theme => ({
         backgroundColor: fade(theme.palette.common.black, 0.25),
       },
       transition: theme.transitions.create('width'),
-      width: '60%',
+      width: '40%',
       '&:focus': {
         width: '80%',
       },
+    },
+    button: {
+      margin: 10,
+      minWidth: 45
     }
 });
 

@@ -1,5 +1,8 @@
 const styles = theme => ({
   content: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
     position: 'relative',
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
@@ -7,7 +10,7 @@ const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       paddingTop: theme.spacing.unit * 3
     }
-  },
+  }
 });
 
 export default styles
