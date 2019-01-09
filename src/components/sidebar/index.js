@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Divider from '@material-ui/core/Divider';
@@ -11,7 +11,7 @@ import Fab from '@material-ui/core/Fab';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles'
 
-class Sidebar extends React.Component {
+class Sidebar extends Component {
   state = {
     mobileOpen: false,
   };
@@ -53,7 +53,8 @@ class Sidebar extends React.Component {
 
     return (
         <nav className={classes.drawer}>
-					{/* invisible on small screens */}
+
+					{/* invisible AppBar with sidebar on small screens */}
           <Hidden smUp implementation="css">
             <AppBar position="fixed" color="default" className={classes.appBar}>
 							<Link to="/" style={{textDecoration: 'none'}}>
@@ -81,7 +82,7 @@ class Sidebar extends React.Component {
             </Drawer>
           </Hidden>
 
-					{/* visible on medium+ screens */}
+					{/* visible sidebar on medium+ screens */}
           <Hidden xsDown implementation="css">
             <Drawer
               container={this.props.container}

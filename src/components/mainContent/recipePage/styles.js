@@ -16,8 +16,39 @@ const styles = theme => ({
     minHeight: '200px',
     height: 300,
   },
-  name: {
-    padding: '20px 0'
+  button: {
+    width: '90%'
+  },
+  nutrientsContainer: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    [theme.breakpoints.down('sm')]: {
+      gridTemplateColumns: 'repeat(3, 1fr)'
+    }
+  },
+  detailsArea: {
+    display: 'flex',
+    alignItems: 'stretch'
+  },
+  labelsList: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  labelsListItem: {
+    width: 'auto',
+    padding: 10
+  },
+  ingredientsList: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start'
+  },
+  ingrWeight: {
+    color: 'rgba(245, 175, 23, 1)'
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'white'
   }
 });
 

@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
-import dietVals from '../dataDietValues'
+import dietVals from '../../../../constData/dataDietValues'
 
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 
-const SingleSelect = ({ classes, name, value, handleChange }) => {
-
+const SingleSelect = memo(({ classes, name, value, handleChange }) => {
+	
   return (
     <FormControl className={classes.formControl}>
       <InputLabel
@@ -42,7 +42,7 @@ const SingleSelect = ({ classes, name, value, handleChange }) => {
       </Select>
     </FormControl>
   )
-}
+})
 
 SingleSelect.propTypes = {
   classes: PropTypes.object.isRequired,

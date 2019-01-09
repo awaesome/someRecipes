@@ -1,10 +1,11 @@
-import getData from './'
-
 const API_ID = 'd5b2f805'
 const API_KEY = '29eb0d46f6796fbf7eeffd8d5cb0a0df'
 
-const parseOptions = (state, query) => {
-  const { diet, health, ingr, calories, time, excluded } = state
+const parsedUrl = (state, pages) => {
+  const { diet, health, ingr, calories, time, excluded, query } = state
+
+  const encQuery = encodeURIComponent(query.trim())
+  const urlQuery = `q=${encQuery}`
 
   const urlHealth = health.length !== 0
     ? health.reduce((parsed, raw) => {
@@ -31,11 +32,11 @@ const parseOptions = (state, query) => {
       }, '')
     : ''
 
-  const options = [ query, urlDiet, urlHealth, urlIngr, urlCalories, urlTime, urlExcluded ]
+  const options = [ urlQuery, urlDiet, urlHealth, urlIngr, urlCalories, urlTime, urlExcluded ]
     .filter(option => option !== '').toString().replace(/,/g, '')
 
-  const url = `https://api.edamam.com/search?${options}&app_id=${API_ID}&app_key=${API_KEY}&to=10`
-  return getData(url)
+  const url = `https://api.edamam.com/search?${options}&app_id=${API_ID}&app_key=${API_KEY}&to=${pages}`
+  return url
 }
 
-export default parseOptions
+export default parsedUrl

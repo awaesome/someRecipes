@@ -5,9 +5,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import Icon from '@material-ui/core/Icon';
 import { withStyles } from '@material-ui/core/styles';
-import styles from './style'
+import styles from './styles'
+import MiniInfo from '../../../miniInfo'
 
 class MediaCard extends Component {
 	state = {
@@ -33,7 +33,6 @@ class MediaCard extends Component {
 		} = this.props;
 
 		const { recipe } = this.state
-		console.log(recipe)
 	  return (
 			<Fragment>
 				{
@@ -53,26 +52,12 @@ class MediaCard extends Component {
 					            {label}
 					          </Typography>
 
-										<div className={classes.infos}>
-											<div>
-												<span className={classes.info}>{calories.toFixed(0)}</span><br/>Calories
-											</div>
+										<MiniInfo
+											totalTime={totalTime}
+											calories={calories}
+											serves={serves}
+											/>
 
-											<div>
-												<span className={classes.info}>{serves}</span><br/>Yield
-											</div>
-
-											<div>
-												{
-													totalTime !== 0
-														? <div>
-																<span className={classes.info}>{totalTime}</span><br/>
-																<Icon style={{verticalAlign: 'sub'}}>timer</Icon>
-															</div>
-														: null
-												}
-											</div>
-										</div>
 					        </CardContent>
 					      </CardActionArea>
 				    	</Card>

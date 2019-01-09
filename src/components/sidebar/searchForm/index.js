@@ -8,13 +8,23 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './styles'
 
 // using memo to prevent excessive updates
-const SearchForm = memo(( { classes, handleRequest, handleEmptyQuery, emptyQuery } ) => {
+const SearchForm = memo(( {
+	classes,
+	handleRequest,
+	handleEmptyQuery,
+	handleChange,
+	emptyQuery,
+	value } ) => {
+
 	const handleSubmit = (event) => {
 		event.preventDefault()
-		const searchInput = event.target.querySelector('input[name="query"]')
-		const query = `q=${searchInput.value}`
-		if(query === 'q=') return handleEmptyQuery()
-		handleRequest(query)
+		value !== ''
+			? handleRequest()
+			: handleEmptyQuery()
+		// const searchInput = event.target.querySelector('input[name="query"]')
+		// const query = `q=${searchInput.value}`
+		// if(query === 'q=') return handleEmptyQuery()
+		// handleRawUrl(query)
 	}
 
   return (
@@ -35,7 +45,9 @@ const SearchForm = memo(( { classes, handleRequest, handleEmptyQuery, emptyQuery
 		      <InputBase
 						autoFocus={true}
 						name="query"
+						value={value}
 		        placeholder="Search…"
+						onChange={handleChange}
 		        classes={{
 		          root: classes.inputRoot,
 		          input: classes.inputInput,
@@ -54,7 +66,9 @@ SearchForm.propTypes = {
   classes: PropTypes.object.isRequired,
 	handleRequest: PropTypes.func.isRequired,
 	handleEmptyQuery: PropTypes.func.isRequired,
-	emptyQuery: PropTypes.bool.isRequired
+	handleChange: PropTypes.func.isRequired,
+	emptyQuery: PropTypes.bool.isRequired,
+	query: PropTypes.string
 };
 
 export default withStyles(styles, { withTheme: true })(SearchForm);
